@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  {{ title }}
+{% endblock %}
+
+{% block content %}
+<div class="container" xmlns="http://www.w3.org/1999/html">
+      <h1 style="text-align: center"><b>
+        {% if details.id==13 %}
+          {{ details.Team_A }} vs {{ details.Team_B }}, Asia Cup Match - {{details.id}}, Final
+        {% else %}
+          {% if details.id > 6 %}
+          {{ details.Team_A }} vs {{ details.Team_B }}, Asia Cup Match - {{details.id}}, Super Four
+          {% else %}
+          {{ details.Team_A }} vs {{ details.Team_B }}, Asia Cup Match - {{details.id}}, Leagues Stage
+          {% endif %}
+        {% endif %}
+      </b></h1>
+      <hr style="border:1px solid black; background-color:black">
+      <p style="font-size:15px; float:left"><b>{{ details.venue }}</b></p>
+      <p style="font-size:15px; float:right"><b>{{ details.date }}-{{ details.time }}</b></p>
+  <br>
+  <br>
+  <br>
+  <p><b>{{ details.Team_A }}: {{details.runs_by_team_A}}</b></p>
+  <p><b>{{ details.Team_B }}: {{details.runs_by_team_B}}</b></p>
+  <br>
+  <p><b>{{ details.outcome }}</b></p>
+  {% if details.id == 13 %}
+    <p><b>Man Of The Match: {{ details.player_of_match }}</b></p>
+    <p><b>Best Bowler Of The Match: {{ details.best_bowler }}</b></p>
+    <p><b>Player Of The Series: {{ details.player_of_series }}</b></p>
+  {% else %}
+    <p><b>Man Of The Match: {{ details.player_of_match }}</b></p>
+    <p><b>Best Bowler Of The Match: {{ details.best_bowler }}</b></p>
+  {% endif %}
+  <br>
+  <p><b>Toss: {{ details.Toss }}</b></p>
+  <p><b>Umpires: {{ details.Umpires }}</b></p>
+  <p><b>Third Umpire: {{ details.third_umpire }}</b></p>
+  <p><b>Match Referee: {{ details.match_refree }}</b></p>
+  <h5 style="line-height:25px"><b>{{ details.Team_A }} Playing-11: </b>{{ details.team_a_playing_11 }} </h5>
+  <h5 style="line-height:25px"><b>{{ details.Team_B }} Playing-11: </b>{{ details.team_b_playing_11 }} </h5>
+</div>
+{% endblock %}

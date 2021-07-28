@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{title}}
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 style="text-align:center"><b>{{ title }} Squad Details</b></h1>
+    <hr style="border: 1px solid black; background-color:black">
+    <div class="row">
+        {% for player in player %}
+        <div class="col-md-3" style="padding:20px">
+            <div class="card" style="padding:10px">
+                <center>
+                    <a href="{{url_for('player_profile', team_name=player.country, player_name=player.name)}}">
+                        <img src="{{ player.image }}.webp" style="border:1px solid black"></a>
+                    <br>
+                    <h3><b>{{ player.name }}</b></h3>
+                    <p><b>({{ player.role }})</b></p>
+                </center>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

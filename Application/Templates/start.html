@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cricket League</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+</head>
+<style>
+    .vertical-center {
+      margin: 0;
+      position: absolute;
+      top: 50%;
+      -ms-transform: translateY(-50%);
+      transform: translateY(-50%);
+    }
+    .horizontally-center {
+      margin: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+    }
+</style>
+<body style="background-image:url('/static/Background/back.jpg'); font-family:Poppins">
+    {% with messages=get_flashed_messages(with_categories=True) %}
+    {% for category,messages in messages %}
+      {% if messages %}
+        <div class="alert alert-success">
+                      <button class="mb-2 mb-1 close" data-dismiss="alert" aria-label="close" type="button">
+                          <span aria-hidden="true">&times;</span>
+                      </button>
+          <center>
+            {{ messages }}
+          </center>
+
+        </div>
+      {% endif %}
+    {% endfor %}
+    {% endwith %}
+    {% include 'Includes/Login.html' %}
+    {% include 'Includes/Register.html' %}
+    <div class="vertical-center horizontally-center" style="background:rgba(255,255,255,0.6);
+    width:400px; border-radius:20px; padding:25px">
+        <center>
+            <h1 style="font-size:20px"><b>Welcome to Cricket Leagues</b></h1>
+            <p>" Are you Travelling or stuck somewhere? Want to see live cricket scores of your team ?
+                Join Us Now"</p>
+            <button class="btn btn-success" style="color:white" data-toggle="modal"
+            data-target="#Login"> Lets Get Started </button>
+        </center>
+    </div>
+</body>
+</html>
